@@ -1,0 +1,368 @@
+:root {
+	/* So colours are easier to remember*/
+	--red : #b70001;
+	--blue : #00366b;
+	--dark : #909090;
+}
+
+body {
+	color: var(--red);
+	max-width: 1600px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	background: white url("./assets/page_grad.png");
+	background-size: cover;
+	/* I used grid for the layout. Grid and flexbox would create the layout and avoid the CSS rules I was instructed to avoid*/
+	display: grid;
+	grid-template-areas: 
+	"header"
+	"navigation"
+	"content"
+	"footer";
+}
+
+
+	/* So navigation items display in a line*/
+ul li {
+	display: inline-block;
+}
+
+
+	/* To remove the default underlining from hyperlinks used as Nav elements*/
+li a {
+	text-decoration: none;
+}
+nav {
+	background: white;
+	width: 100%;
+	text-align: right;
+}
+
+nav a {
+	color: var(--red);
+
+}
+nav li {
+    padding: 20px 20px 40px 20px;
+
+}
+
+	/* For the social media icons*/
+.icon {
+	max-width: 16px;
+}
+
+.header {
+  grid-area: header;
+
+}
+
+.navigation {
+  grid-area: navigation;
+  font-weight: bold;
+
+}
+
+.content-area {
+  grid-area: content;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  gap: 50px;
+}
+
+
+.footer-area {
+  grid-area: footer;
+  display: flex;
+  justify-content: flex-end;
+
+}
+.ad-top {
+	background: var(--dark) url("./assets/dark_background.jpg") repeat-x;
+	color: white;
+    padding: 5%;
+    font-weight: bold;
+}
+.ad-main {
+	background: var(--dark) url("./assets/content_plane_bg.png") repeat;
+	color: white;
+	padding: 10%;
+	font-size: 0.6em;
+  	min-height: 75%;
+}
+.ad-main img {
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+    margin-bottom: 10%;
+	width: 100%;
+}
+.card {
+	max-width: 300px;
+	margin: 15px;
+}
+
+.card-title {
+	background: var(--dark) url("./assets/content_plane_bg.png") repeat;
+	font-weight: bold;
+	padding: 20px;
+}
+.card-img {
+	background: var(--dark) url("./assets/content_plane_bg.png") repeat;
+}
+.card-img img {
+	width: 100%;
+}
+.container {
+	max-width: 1600px;
+    display: grid;
+  	grid-template-columns: repeat(3, minmax(200px, 1fr));
+    justify-items: center;
+}
+
+.update {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 3fr;
+	gap: 10%;
+	margin-top: 10%;
+
+}
+.update-img {
+	grid-column: 1/2;
+	grid-row: 1/3;
+
+
+}
+.update-img img{
+	width: 100%;
+	}
+.update-date {
+
+}
+.update-text {
+	grid-column: 2/2;
+	grid-row: 2/3;
+
+}
+
+.date {	
+    background-color: var(--red);
+    padding: 5% 10%;
+    font-weight: bold;
+    font-size: 15px;
+	/* I decided to use a white border instead of a shadow for the dates*/
+    border-top: white solid;
+    border-right: white solid;
+}
+.dark {
+	color: var(--dark);
+}
+.white {
+	color: #fff;
+}
+.white-title {
+	font-size: 1.2em;
+}
+
+
+#top-bar {
+	background-color: #000;
+	color: #fff;
+	display: flex;
+  justify-content: flex-end;
+
+}
+
+#social a {
+	color: var(--red);
+	text-decoration: none;
+
+}
+#content-wrapper {
+	padding: 0 5% 0 5%;
+}
+#top-bar a {
+	color: #fff;
+	padding: 10px;
+}
+
+#logo-bar {
+	display: flex;
+	background: white url("./assets/header_bg.png") repeat-x;
+	justify-content: space-around;
+}
+
+#logo-container {
+	background: var(--red) url("./assets/logo_plane.png") no-repeat;
+	background-size: cover;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin: 40px 0px 0px 0px;
+}
+
+
+#logo-container img {
+	width: 80%;
+}
+
+#social {
+    display: inline-flex;
+    align-items: baseline;
+    padding: 50px;
+}
+
+#slider {
+    background: var(--dark) url(./assets/image1.jpg) no-repeat left top;
+    background-size: cover;
+
+}
+
+#slider img {
+	width: 100%;
+}
+
+
+
+	/* For responsiveness - Everything below*/
+
+
+@media only screen and (max-width: 480px) {
+  body {
+  	max-width: 450px;
+  }
+  #slider {
+  	display: none;
+  }
+  #logo-bar {
+  	flex-wrap: wrap;
+  }
+  #logo-container {
+  	margin: 0;
+  }
+  #top-bar {
+  	justify-content: center;
+  }
+  #social {
+  	display: none;
+  }
+  nav {
+  	text-align: center;
+  }
+  nav li {
+  	display: block;
+    padding: 10px 0px;
+  }
+  .container {
+  	max-width: 450px;
+  	grid-template-columns: 1fr;
+  }
+  .content-area {
+  	grid-template-rows: auto;
+  }
+  .ad-main {
+  	font-size: 1em;
+  }
+
+  .footer-area {
+  	justify-content: center;
+  }
+
+}
+
+@media only screen and (min-width: 481px) and (max-width: 800px) {
+
+	body {
+  	max-width: 750px;
+  }
+	nav {
+  	text-align: center;
+  }
+	nav li {
+    padding: 0px 20px;
+  }
+  #top-bar {
+  	justify-content: center;
+  }
+
+  #logo-bar {
+  	flex-wrap: wrap;
+    background: white url(./assets/header_bg.png) repeat;
+  }
+  #logo-container {
+  	margin: 0;
+  }
+  #social {
+  	padding: 0;
+  }
+  #social ul {
+  	display: none;
+  }
+  .white {
+  	color: #000;
+  } 
+  .container {
+  	max-width: 750px;
+  	grid-template-columns: 1fr 1fr;
+  }
+  .navigation {
+  	font-size: 0.6em;
+  }
+
+  .content-area {
+  	grid-template-rows: auto;
+  }
+  .ad-main {
+  	font-size: 1em;
+  }
+  .footer-area {
+  	justify-content: center;
+  }
+
+}
+
+@media only screen and (min-width: 801px) and (max-width: 1100px) {
+
+	body {
+  	max-width: 1050px;
+  }
+	nav {
+  	text-align: center;
+  }
+	nav li {
+    padding: 0px 20px;
+  }
+  #top-bar {
+  	justify-content: center;
+  }
+
+  #logo-bar {
+  	flex-wrap: wrap;
+    background: white url(./assets/header_bg.png) repeat;
+  }
+  #logo-container {
+  	margin: 0;
+  }
+  #social {
+  	padding: 0;
+  }
+  #social ul {
+  	display: none;
+  }
+  .container {
+  	max-width: 1050px;
+  	grid-template-columns: 1fr 1fr;
+  }
+  .navigation {
+  	font-size: 0.6em;
+  }
+
+  .content-area {
+  	grid-template-rows: auto;
+  }
+  .footer-area {
+  	justify-content: center;
+  }
+
+}
